@@ -1,0 +1,160 @@
+
+/* accordion-expand-collapse-css*/
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: hsl(269,19%,30%);
+  background-color: hsla(32,100%,85%,.35);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.4'/%3E%3C/filter%3E%3C/defs%3E%3C!-- %3Cpath filter='url(%23a)' opacity='.3' d='M0 0h1200v256H0z'/%3E--%3E%3Crect filter='url(%23a)' opacity='.3' width='100%25' height='100%25'/%3E%3C/svg%3E");
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #000;
+}
+::selection {
+  color: #fff;
+  background-color: #000;
+}
+h1 {
+  font-weight: 100;
+  line-height: 1.3;
+  text-align: center;
+}
+h1 + p {text-align: center;}
+h2, h3 {margin: 0}
+code {
+  font-family: monospace, monospace;
+  color: #000;
+}
+figure {margin:1rem 0rem 1.5rem}
+pre {padding: 0 !important}
+pre > code {
+  display:block;
+  padding: 1rem;
+}
+code:focus{
+  background-color: #fff;
+}
+.footnote {
+  text-align: center;
+}
+
+.extensions_hdr {
+  font-weight: 100;
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+section {
+  max-width: 40rem;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.3);
+  margin-bottom: .5rem;
+}
+
+.toggler_btn {
+  position: relative;
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 1.125rem;
+  text-align: left;
+  padding: 1rem 3rem 1rem 1rem;
+  color: hsl(211, 100%, 40%);
+  background-color: rgba(255,255,255,.5);
+  border: 0 solid;
+  transition: background-color .3s ease-out, color .3s ease-out;
+  cursor:  pointer;
+}
+.toggler_btn:hover,
+.toggler_btn:focus {
+  color: hsl(211, 100%, 46%);
+  background-color: rgba(255,255,255,.85);
+}
+.toggler_btn:focus {
+  outline: none;
+}
+.btn_lbl {
+  pointer-events: none;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .3s;
+}
+.toggler_btn:hover .btn_lbl,
+.toggler_btn:focus .btn_lbl {
+  text-decoration-color: inherit;
+}
+
+/* Button SVG */
+.expand_cnt {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translatey(-50%);
+}
+.svg-expand3 {
+  stroke: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  display:block;
+  border-radius: 100%;
+  transition: transform .6s, box-shadow 0.3s;
+}
+[aria-expanded="true"] .svg-expand3 {
+  transform: rotate(180deg);
+}
+.toggler_btn:hover .svg-expand3,
+.toggler_btn:focus .svg-expand3 {
+  box-shadow: 0 0 0 4px hsla(211, 100%, 46%, .4);
+}
+
+.toggled {padding:0 1rem}
+.toggled > :last-child {margin-bottom: 1rem;}
+
+/* Content block expand / contract animation */
+.toggled[aria-hidden] {
+  overflow: hidden;
+  visibility: hidden; /* Prevents links appearing in keyboard chain */
+  opacity: 0;
+  max-height: 0;
+  transition: visibility 0s linear .6s, opacity .6s ease-in, max-height .6s ease-out;
+}
+.toggled[aria-hidden="true"] {
+  max-height: 0 !important; /* Overwrites an inline style value */
+}
+.toggled[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
+  max-height: 50rem; /* A calculated value is inserted inline by the JS */
+  transition-delay: 0s, 0s, 0s;
+  transition-timing-function: linear, linear, ease-out;
+}
+.toggled .toggled {
+  margin-bottom: 0.5rem;
+}
+
+/* Prism - is used for code highlighting from an external pen: https://codepen.io/2kool2/pen/MEbeEg */
+
+figure {
+  box-shadow: 0 2px 4px rgba(0,0,0,.125);
+  background-color: rgba(255,255,255,.5);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg height='48' style='opacity:.5' viewBox='0 0 1224 64' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cfilter id='code_noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.2,.1'/%3E%3C/filter%3E%3Cpath id='code-path' fill-rule='evenodd' d='M1224 64H0V0h1224v64zM19 31a15 15 0 1 1 0 30 15 15 0 0 1 0-30z' fill='%23fcfdfc'/%3E%3CclipPath id='code-clip'%3E%3Cuse clip-rule='evenodd' xlink:href='%23code-path'/%3E%3C/clipPath%3E%3Cpath d='M0 1h1224M0 5h1224M0 9h1224M0 13h1224M0 17h1224M0 21h1224M0 25h1224M0 29h1224' stroke='%23edf3ed' stroke-width='2'/%3E%3Cpath d='M19 31a15 15 0 1 1 0 30 15 15 0 0 1 0-30zm11 8a13 13 0 0 0-22 0c-2 3-3 5-3 8 0 8 6 14 14 14s14-6 14-14c0-3-1-5-3-8z' fill='rgba(0,0,0,.2)'/%3E%3Cpath d='M40 2v60' stroke='%23b8d9b8' stroke-width='2' stroke-dasharray='2,6,2,6'/%3E%3Cuse clip-path='url(%23code-clip)' filter='url(%23code_noise)' opacity='.05' xlink:href='%23code-path'/%3E%3C/svg%3E");
+  padding-left: 2rem;
+}
+figcaption {
+  font-weight: 700;
+  padding: 1.5rem 0 0 .5rem;
+}
+pre,
+pre > code {
+  background-color: transparent !important;
+}
