@@ -1,44 +1,16 @@
-$(document).ready(function(){
-  var zindex = 10;
-  
-  $("div.card").click(function(e){
-    e.preventDefault();
-
-    var isShowing = false;
-
-    if ($(this).hasClass("show")) {
-      isShowing = true
-    }
-
-    if ($("div.cards").hasClass("showing")) {
-      // a card is already in view
-      $("div.card.show")
-        .removeClass("show");
-
-      if (isShowing) {
-        // this card was showing - reset the grid
-        $("div.cards")
-          .removeClass("showing");
-      } else {
-        // this card isn't showing - get in with it
-        $(this)
-          .css({zIndex: zindex})
-          .addClass("show");
-
-      }
-
-      zindex++;
-
-    } else {
-      // no cards in view
-      $("div.cards")
-        .addClass("showing");
-      $(this)
-        .css({zIndex:zindex})
-        .addClass("show");
-
-      zindex++;
-    }
+$('.accordion-toggle').click(function(e) {
+  	e.preventDefault();  
+    $("a:first-of-type").removeClass('chev');
     
-  });
+    var $this = $(this);
+    if ($this.next().hasClass('show')) {
+        $this.next().removeClass('show');
+        $this.next().slideUp(350);
+    } else {
+        $this.parent().parent().find('li .accordion-inner').removeClass('show');
+        $this.parent().parent().find('li .accordion-inner').slideUp(350);
+        $this.toggleClass('chev');
+        $this.next().toggleClass('show');
+        $this.next().slideToggle(350);
+    }
 });
