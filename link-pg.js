@@ -1,34 +1,16 @@
-// Library
-
-// ---- callback hooks
-
-ackordion.addCallbackForEvent('init', function(eventName, accordion) {
-  console.log('init: ' + accordion.id);
+$('.accordion-toggle').click(function(e) {
+  	e.preventDefault();  
+    $("a:first-of-type").removeClass('chev');
+    
+    var $this = $(this);
+    if ($this.next().hasClass('show')) {
+        $this.next().removeClass('show');
+        $this.next().slideUp(350);
+    } else {
+        $this.parent().parent().find('li .accordion-inner').removeClass('show');
+        $this.parent().parent().find('li .accordion-inner').slideUp(350);
+        $this.toggleClass('chev');
+        $this.next().toggleClass('show');
+        $this.next().slideToggle(350);
+    }
 });
-ackordion.addCallbackForEvent('beforeopen', function(eventName, accordion, item) {});
-ackordion.addCallbackForEvent('beforeclose', function(eventName, accordion, item) {});
-
-// ---- init 
-
-ackordion.init('ackordion-1');
-
-ackordion.init({
-  id: 'ackordion-2',
-  closeHeight: '32px',
-  duration: '300ms',
-});
-
-ackordion.init({
-  id: 'ackordion-3',
-  duration: '500ms',
-});
-
-ackordion.init({
-  id: 'ackordion-4',
-  autoClosePrevious: false,
-  transition: 'max-height 300ms cubic-bezier(.27,.82,.29,.84)',
-});
-
-// Custom other script
-if (window.FastClick)
-  FastClick.attach(document.body);
