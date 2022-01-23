@@ -1,0 +1,108 @@
+*[inert] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  position: relative;
+  min-height: 100vh;
+  min-height: 1600px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.ackordion--theme-blue button[role=tab] {
+  background: #039BE5;
+}
+
+.ackordion--theme-blue button[role=tab]:hover {
+  background: #038acc;
+}
+
+.ackordion--theme-blue button[role=tab]:focus {
+  background: #0279b3;
+}
+
+.ackordion--theme-blue > li > section > div {
+  background: #222;
+  color: white;
+}
+
+.ackordion--theme-green > li > section > div {
+  padding: 0 1rem;
+}
+
+.ackordion--theme-green > li > section > div::before,
+.ackordion--theme-green > li > section > div::after {
+  content: "";
+  display: block;
+  height: 1rem;
+}
+
+.ackordion--theme-green button[role=tab] {
+  background: #689F38;
+}
+
+.ackordion--theme-green button[role=tab]:hover {
+  background: #5c8c31;
+}
+
+.ackordion--theme-green button[role=tab]:focus {
+  background: #4f792b;
+}
+
+.ackordion--theme-green > li > section > div {
+  background: #222;
+  color: white;
+}
+
+.ackordion--theme-red button[role=tab] {
+  background: #FF5722;
+}
+
+.ackordion--theme-red button[role=tab]:hover {
+  background: #ff4409;
+}
+
+.ackordion--theme-red button[role=tab]:focus {
+  background: #ee3900;
+}
+
+.ackordion--theme-red > li > section > div {
+  background: linear-gradient(180deg, rgba(255, 87, 34, 0.1), white);
+}
+
+.ackordion--theme-red > li > section > div > * {
+  margin: 0;
+  padding: 0;
+}
+
+.ackordion--theme-red > li > section > div::first-letter {
+  font-size: 200%;
+  font-weight: bold;
+  color: #FF5722;
+  padding-right: 0.2rem;
+}
+
+.divider {
+  height: 2rem;
+}
+
+.page-info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+}
