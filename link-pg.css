@@ -1,108 +1,71 @@
-*[inert] {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
+.accordion {
+    /* box-sizing: border-box; */
+    font-family: 'Montserrat';
+    font-weight: 300;
+    /* Space section box from left margin*/
+    padding: 0;
+    /* Hide bullets to the left of section box */
+    list-style: none;
 }
 
-html {
-  font-size: 100%;
+/* Indent submenus */
+ul .accordion-inner {
+    padding-left: 1em;
+    overflow: hidden;
+    display: none;
+      /* Space section box from left margin*/
+    padding: 5;
+    /* Hide bullets to the left of section box */
+    list-style: none;
 }
 
-body {
-  font-family: sans-serif;
+/* Spacing between sections */
+li {
+    margin: .7em 0;
+}
+
+/* Box arround each section */
+li a.accordion-toggle {
+    text-decoration: none;
+    color: inherit;
+    width: auto;
+    display: block;
+    background: rgba(0,0,0,0.78);
+    color: #fefefe;
+    padding: .45em;
+    transition: background .3s ease;
+     -webkit-border-radius: 7px;
+     -moz-border-radius: 7px;
+     border-radius: 7px;
+}
+
+/* Hover effect on a sections */
+li a.accordion-toggle:hover {
+    background: rgba(0, 0, 0, 0.9);
+ }
+
+.accordion a .fa-chevron-down {
   position: relative;
-  min-height: 100vh;
-  min-height: 1600px;
-  margin-top: 0;
-  margin-bottom: 0;
+  /* green, top level  */
+	color: #29d909;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 
-h1 {
-  text-align: center;
+.accordion a.chev .fa-chevron-down {
+	color: #c63b4d;
 }
 
-.ackordion--theme-blue button[role=tab] {
-  background: #039BE5;
+ .accordion a .fa-chevron-down {
+  margin-left: 5px;
+  margin-right: 15px;
+  font-size: 18px;
 }
 
-.ackordion--theme-blue button[role=tab]:hover {
-  background: #038acc;
-}
-
-.ackordion--theme-blue button[role=tab]:focus {
-  background: #0279b3;
-}
-
-.ackordion--theme-blue > li > section > div {
-  background: #222;
-  color: white;
-}
-
-.ackordion--theme-green > li > section > div {
-  padding: 0 1rem;
-}
-
-.ackordion--theme-green > li > section > div::before,
-.ackordion--theme-green > li > section > div::after {
-  content: "";
-  display: block;
-  height: 1rem;
-}
-
-.ackordion--theme-green button[role=tab] {
-  background: #689F38;
-}
-
-.ackordion--theme-green button[role=tab]:hover {
-  background: #5c8c31;
-}
-
-.ackordion--theme-green button[role=tab]:focus {
-  background: #4f792b;
-}
-
-.ackordion--theme-green > li > section > div {
-  background: #222;
-  color: white;
-}
-
-.ackordion--theme-red button[role=tab] {
-  background: #FF5722;
-}
-
-.ackordion--theme-red button[role=tab]:hover {
-  background: #ff4409;
-}
-
-.ackordion--theme-red button[role=tab]:focus {
-  background: #ee3900;
-}
-
-.ackordion--theme-red > li > section > div {
-  background: linear-gradient(180deg, rgba(255, 87, 34, 0.1), white);
-}
-
-.ackordion--theme-red > li > section > div > * {
-  margin: 0;
-  padding: 0;
-}
-
-.ackordion--theme-red > li > section > div::first-letter {
-  font-size: 200%;
-  font-weight: bold;
-  color: #FF5722;
-  padding-right: 0.2rem;
-}
-
-.divider {
-  height: 2rem;
-}
-
-.page-info {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
+.accordion a.chev .fa-chevron-down {
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(180deg);
 }
